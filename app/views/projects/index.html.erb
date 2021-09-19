@@ -1,0 +1,19 @@
+<h1>Portfolio J.KERBRAT</h1>
+
+
+<%= link_to "Add a new project", new_project_path, class: "btn btn-gradient"%>
+<br>
+<br><br>
+
+<% @projects.each do |project| %>
+
+Name : <%= project.name %> <br>
+Url : <%= link_to "Show", "#{project.url}", :target => "_blank" %> <br>
+Description : <%= project.content %> <br>
+<%= link_to project.name, project_path(project) %> <br>
+<%= link_to 'Update', project_path(project), method: :patch,
+            data: { confirm: "Are you sure?" } %> <br>
+
+<br><br>
+
+<% end %>

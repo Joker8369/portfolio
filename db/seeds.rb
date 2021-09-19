@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Project.destroy_all
+puts " No Project Existing !  "
+Project.create!(name: 'Devn b', url: 'https://dev-n-b.herokuapp.com/', content: 'Mission Freelance sur une periode')
+Project.create!(name: 'Skizi', url: 'https://skizi.herokuapp.com/', content: 'Application management ')
+Project.create!(name: 'Task manager', url: 'https://task.herokuapp.com/', content: 'Application management ')
+
+puts " Projects create"
