@@ -11,7 +11,9 @@ Name : <%= project.name %> <br>
 Url : <%= link_to "Show", "#{project.url}", :target => "_blank" %> <br>
 Description : <%= project.content %> <br>
 <%= link_to project.name, project_path(project) %> <br>
-<%= link_to 'Update', project_path(project), method: :patch,
+<%= link_to 'Update', edit_project_path(project), method: :get,
+            data: { confirm: "Are you sure?" } %> <br>
+<%= link_to 'Delete', project_path(project), method: :delete,
             data: { confirm: "Are you sure?" } %> <br>
 
 <br><br>
