@@ -1,27 +1,22 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1551122102-63cd339bfaab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80);">
-  <div class ="container">
-      <h1>Hello I'm J.KERBRAT</h1>
-      <p>Web developpeur Ruby on Rails</p>
+<div class="banner">
+</div>
+<div class="home_section">
+  <div class="home_content">
+    <div class="profil_perso">
+      <div class="user">
+        <% if user_signed_in? %>
+          <h3> Bonjour <%= current_user.name.capitalize %></h3>
+        <% end %>
+        <% if user_signed_in? %>
+        <%= button_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-flat' %>
+        <% else %>
+        <%= button_to "Sign in", new_user_session_path, class: "btn btn-flat"  %>
+        <% end %>
+      </div>
+    <%= link_to "Add a new project", new_project_path, class: "btn btn-flat"%>
+    </div>
   </div>
 </div>
-<br>
-<div class = "navbar">
-  <div class ='user'>
-<% if user_signed_in? %>
-<h3> Bonjour <%= current_user.name.capitalize %></h3>
-<% end %>
-<% if user_signed_in? %>
-<%= button_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-flat' %>
-<% else %>
-<%= button_to "Sign in", new_user_session_path, class: "btn btn-flat"  %>
-<% end %>
-</div>
-<div class ='create'>
-<%= link_to "Add a new project", new_project_path, class: "btn btn-gradient"%>
-</div>
-</div>
-<br>
-<br><br>
 <div class="cards">
 <% @projects.each do |project| %>
 <div class="card-product">
