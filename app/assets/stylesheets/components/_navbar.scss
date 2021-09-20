@@ -1,0 +1,11 @@
+.navbar{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  font-size: large;
+  align-items: center;
+}
+
+.create {
+  text-align: end;
+}
