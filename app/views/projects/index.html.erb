@@ -1,21 +1,46 @@
-<h1>Portfolio J.KERBRAT</h1>
-
-
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1551122102-63cd339bfaab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80);">
+  <div class ="container">
+      <h1>Hello I'm J.KERBRAT</h1>
+      <p>Web developpeur Ruby on Rails</p>
+  </div>
+</div>
+<br>
+<div class = "navbar">
+  <div class ='user'>
+<% if user_signed_in? %>
+<h3> Bonjour <%= current_user.name.capitalize %></h3>
+<% end %>
+<% if user_signed_in? %>
+<%= button_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-flat' %>
+<% else %>
+<%= button_to "Sign in", new_user_session_path, class: "btn btn-flat"  %>
+<% end %>
+</div>
+<div class ='create'>
 <%= link_to "Add a new project", new_project_path, class: "btn btn-gradient"%>
+</div>
+</div>
 <br>
 <br><br>
-
+<div class="cards">
 <% @projects.each do |project| %>
+<div class="card-product">
+<img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+<div class="card-product-infos">
+<h2>Name : <%= project.name %></h2> <br>
+<p>Url : <%= link_to "#{project.url}", "#{project.url}", :target => "_blank" %></p> <br>
+<p>Description : <%= project.content %></p> <br>
+<div class='card-infos_2'>
+  <div><%= link_to 'See More', project_path(project) %></div>
+  <div><%= link_to 'Update', edit_project_path(project), method: :get,
+            data: { confirm: "Are you sure?" } %>
+  </div>
+  <div><%= link_to 'Delete', project_path(project), method: :delete,
+            data: { confirm: "Are you sure?" } %>
+  </div>
+</div>
 
-Name : <%= project.name %> <br>
-Url : <%= link_to "Show", "#{project.url}", :target => "_blank" %> <br>
-Description : <%= project.content %> <br>
-<%= link_to project.name, project_path(project) %> <br>
-<%= link_to 'Update', edit_project_path(project), method: :get,
-            data: { confirm: "Are you sure?" } %> <br>
-<%= link_to 'Delete', project_path(project), method: :delete,
-            data: { confirm: "Are you sure?" } %> <br>
-
-<br><br>
-
+</div>
+</div>
 <% end %>
+</div>
