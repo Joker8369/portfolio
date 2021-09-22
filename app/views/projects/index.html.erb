@@ -1,22 +1,25 @@
-<div class="banner">
-</div>
-<div class="home_section">
-  <div class="home_content">
-    <div class="profil_perso">
-      <div class="user">
-        <% if user_signed_in? %>
+<div class="page">
+<div class ="uppage">
+<h2> J.KERBRAT Portfolio<span>.</span></h2>
+  <nav>
+    <ul class = nav>
+      <li>Accueil</li>
+      <li>Qui-suis-je?</li>
+      <li>Mes réalisations</li>
+      <li>Contact</li>
+      <li> <% if user_signed_in? %>
           <h3> Bonjour <%= current_user.name.capitalize %></h3>
         <% end %>
         <% if user_signed_in? %>
-        <%= button_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-flat' %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete%>
+        <%= link_to "Add a new project", new_project_path, class: "btn btn-flat"%>
         <% else %>
-        <%= button_to "Sign in", new_user_session_path, class: "btn btn-flat"  %>
-        <% end %>
-      </div>
-    <%= link_to "Add a new project", new_project_path, class: "btn btn-flat"%>
-    </div>
-  </div>
+        <%= link_to "Sign in", new_user_session_path%>
+        <% end %></li>
+    </ul>
+  </nav>
 </div>
+<div class="whomi"></div>
 <div class="cards">
 <% @projects.each do |project| %>
 <div class="card-product">
@@ -26,16 +29,20 @@
 <p>Url : <%= link_to "#{project.url}", "#{project.url}", :target => "_blank" %></p> <br>
 <p>Description : <%= project.content %></p> <br>
 <div class='card-infos_2'>
+<% if user_signed_in? %>
   <div><%= link_to 'See More', project_path(project) %></div>
   <div><%= link_to 'Update', edit_project_path(project), method: :get,
             data: { confirm: "Are you sure?" } %>
   </div>
   <div><%= link_to 'Delete', project_path(project), method: :delete,
             data: { confirm: "Are you sure?" } %>
-  </div>
+</div>
+  <% end %>
 </div>
 
 </div>
 </div>
 <% end %>
+</div>
+<div class="contact"></div>
 </div>

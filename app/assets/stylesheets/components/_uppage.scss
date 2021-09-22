@@ -1,0 +1,39 @@
+
+.uppage {
+  height: 9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 5px;
+}
+.uppage h2{
+  float: left;
+  font-size: 2.2rem;
+  width: 40%;
+  font-family: 'Courgette', cursive;
+  padding: 1rem;
+}
+
+.uppage nav{
+  float: right;
+  width: 60%;
+  text-align: end;
+}
+span {
+  color: red;
+  font-size: 3rem;
+}
+
+ul {
+  list-style: none;
+
+}
+
+.uppage nav ul li  {
+  display: inline-block;
+  margin-right: 0;
+  padding:0 2%;
+  font-family: 'Courgette', cursive;
+  font-size: 1.2rem;
+
+}
