@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   root to: 'projects#index'
   resources :users, except: %i[destroy show]
   resources :projects
+  resources :contacts, only: [:new, :create,:index] do
+  end
 
 end
