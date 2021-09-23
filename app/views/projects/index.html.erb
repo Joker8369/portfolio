@@ -28,9 +28,8 @@
   <% @users.each do |user| %>
   <%= user.story %>
   </div>
-  <div class="section 3">
+  <div class="map">
     <div id="map"
-     style="width: 15rem; height: 15rem; border-radius:50%"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
      </div>
