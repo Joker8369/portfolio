@@ -1,9 +1,11 @@
 class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :find, only: %i[edit show update destroy]
+
   def index
     @projects = Project.all
     @users = User.all
+    @user = current_user
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
@@ -50,4 +52,6 @@ class ProjectsController < ApplicationController
   def find
     @project = Project.find(params[:id])
   end
+
+
 end

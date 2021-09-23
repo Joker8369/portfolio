@@ -11,21 +11,20 @@
         <h3> Bonjour <%= current_user.name.capitalize %></h3>
             <% end %>
         <% if user_signed_in? %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete%>
-        <%= link_to "Add a new project", new_project_path, class: "btn btn-flat"%>
-        <%= link_to 'Update Profile', edit_user_path(user), method: :get%>
-      </div>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "button"%>
+        <%= link_to "Add a new project", new_project_path, class: "button"%>
+        <%= link_to 'Show Users', users_path, method: :get, class: "button"%>
         <% else %>
-        <%= link_to "Sign in", new_user_session_path%>
+        <%= link_to "Sign in", new_user_session_path, class: "button"%>
         <% end %></li>
       </ul>
     </nav>
   </div>
   <div class="whomi">
-  <div class="section_1">
-    <%= image_tag "me.jpg", class:"img"%>
+  <div class="img">
+    <%= image_tag "me.jpg"%>
   </div>
-  <div class="section_2">
+  <div class="profile">
   <% @users.each do |user| %>
   <%= user.story %>
   </div>
