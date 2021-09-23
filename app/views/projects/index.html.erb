@@ -13,6 +13,8 @@
         <% if user_signed_in? %>
         <%= link_to "Log out", destroy_user_session_path, method: :delete%>
         <%= link_to "Add a new project", new_project_path, class: "btn btn-flat"%>
+        <%= link_to 'Update Profile', edit_user_path(user), method: :get%>
+      </div>
         <% else %>
         <%= link_to "Sign in", new_user_session_path%>
         <% end %></li>
