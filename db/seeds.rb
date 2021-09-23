@@ -5,7 +5,13 @@ User.destroy_all
 puts 'No Project Existing !'
 puts 'no users'
 
-admin = User.create!(name: 'admin', email: 'admin@gmail.com', password: 'tototo', password_confirmation: 'tototo')
+admin = User.create!(name: 'admin',
+   email: 'admin@gmail.com',
+   story:'cc',
+   address: '69510 Soucieu en jarrest',
+   password: 'tototo',
+   password_confirmation: 'tototo'
+  )
 
 puts 'user ok!'
 

@@ -1,63 +1,82 @@
 <div class="page">
-<div class ="uppage">
-<h2> J.KERBRAT Portfolio<span>.</span></h2>
-  <nav>
-    <ul class = nav>
-      <li>Accueil</li>
-      <li>Qui-suis-je?</li>
-      <li>Mes réalisations</li>
-      <li>Contact</li>
-      <li> <% if user_signed_in? %>
-          <h3> Bonjour <%= current_user.name.capitalize %></h3>
-        <% end %>
+  <div class ="uppage">
+    <h2> J.KERBRAT Portfolio<span>.</span></h2>
+    <nav>
+      <ul class = nav>
+        <li>Accueil</li>
+        <li>Qui-suis-je?</li>
+        <li>Mes réalisations</li>
+        <li>Contact</li>
+        <li> <% if user_signed_in? %>
+        <h3> Bonjour <%= current_user.name.capitalize %></h3>
+            <% end %>
         <% if user_signed_in? %>
         <%= link_to "Log out", destroy_user_session_path, method: :delete%>
         <%= link_to "Add a new project", new_project_path, class: "btn btn-flat"%>
         <% else %>
         <%= link_to "Sign in", new_user_session_path%>
         <% end %></li>
-    </ul>
-  </nav>
-</div>
-<div class="whomi">
-<%= image_tag "me.jpg", class:"img"%></div>
-<div class="cards">
-<% @projects.each do |project| %>
-<div class="card-product">
-<img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-<div class="card-product-infos">
-<h2>Name : <%= project.name %></h2> <br>
-<p>Url : <%= link_to "#{project.url}", "#{project.url}", :target => "_blank" %></p> <br>
-<p>Description : <%= project.content %></p> <br>
-<div class='card-infos_2'>
-<% if user_signed_in? %>
-  <div><%= link_to 'See More', project_path(project) %></div>
-  <div><%= link_to 'Update', edit_project_path(project), method: :get,
-            data: { confirm: "Are you sure?" } %>
+      </ul>
+    </nav>
   </div>
-  <div><%= link_to 'Delete', project_path(project), method: :delete,
-            data: { confirm: "Are you sure?" } %>
-</div>
+  <div class="whomi">
+  <div class="section_1">
+    <%= image_tag "me.jpg", class:"img"%>
+  </div>
+  <div class="section_2">
+  <% @users.each do |user| %>
+  <%= user.story %>
+  </div>
+  <div class="section 3">
+    <div id="map"
+     style="width: 15rem; height: 15rem; border-radius:50%"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+     </div>
+  </div>
   <% end %>
-</div>
-
-</div>
-</div>
-<% end %>
-</div>
-<div class="contact">
-<div class="form">
-<h3>Me contacter</h3>
-<%= form_with url: contacts_path(model: @contact, local: true) do |f| %>
-  <%= f.label :name, "Nom" %> <br>
-  <%= f.text_field :name %> <br><br>
-  <%= f.label :phone, "📞" %><br>
-  <%= f.text_field :name %><br><br>
-  <%= f.label :email, "📧" %><br>
-  <%= f.email_field :email, autocomplete: "email" %><br><br>
-  <%= f.label :content, "🎟️" %><br>
-  <%= f.text_field :content %><br><br>
-  <%= f.submit "📩" %>
-<% end %></div>
-</div>
+  </div>
+  <div class="cards">
+    <% @projects.each do |project| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h2>Name : <%= project.name %></h2> <br>
+      <p>Url : <%= link_to "#{project.url}", "#{project.url}", :target => "_blank" %></p> <br>
+      <p>Description : <%= project.content %></p> <br>
+    <div class='card-infos_2'>
+      <% if user_signed_in? %>
+      <div>
+        <%= link_to 'See More', project_path(project) %>
+      </div>
+      <div>
+        <%= link_to 'Update', edit_project_path(project), method: :get,
+        data: { confirm: "Are you sure?" } %>
+      </div>
+      <div>
+        <%= link_to 'Delete', project_path(project), method: :delete,
+        data: { confirm: "Are you sure?" } %>
+      </div>
+      <% end %>
+    </div>
+    </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="contact">
+    <div class="form">
+      <h3>Me contacter</h3>
+      <%= form_with url: contacts_path(model: @contact, local: true) do |f| %>
+      <%= f.label :name, "Nom" %> <br>
+      <%= f.text_field :name %> <br><br>
+      <%= f.label :phone, "📞" %><br>
+      <%= f.text_field :name %><br><br>
+      <%= f.label :email, "📧" %><br>
+      <%= f.email_field :email, autocomplete: "email" %><br><br>
+      <%= f.label :content, "🎟️" %><br>
+      <%= f.text_field :content %><br><br>
+      <%= f.submit "📩" %>
+      <% end %>
+    </div>
+  </div>
 </div>
