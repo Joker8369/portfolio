@@ -1,0 +1,10 @@
+<h1>Users index</h1>
+
+<%@users.each do |user| %>
+<%= user.name %>
+<%= user.story %>
+<%= user.address %>
+<%= link_to 'Update', edit_user_path(user), method: :get,
+        data: { confirm: "Are you sure?" } %>
+
+<% end %>
