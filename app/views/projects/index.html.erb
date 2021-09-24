@@ -4,23 +4,24 @@
     <nav>
       <ul class = nav>
         <li>Accueil</li>
-        <li>Qui-suis-je?</li>
-        <li>Mes réalisations</li>
-        <li>Contact</li>
+        <li><%= link_to 'Qui suis je?', '#whomi' %></li>
+        <li><%= link_to 'Mes réalisations', '#cards' %></li>
+        <li><%= link_to 'Contact', '#contact' %></li>
         <li> <% if user_signed_in? %>
         <h3> Bonjour <%= current_user.name.capitalize %></h3>
             <% end %>
         <% if user_signed_in? %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "button"%>
-        <%= link_to "Add a new project", new_project_path, class: "button"%>
-        <%= link_to 'Show Users', users_path, method: :get, class: "button"%>
+        <%= link_to "\u274C", destroy_user_session_path, method: :delete%>
+        <%= link_to "Add a new project", new_project_path%>
+        <%= link_to 'Show Users', users_path, method: :get%>
         <% else %>
-        <%= link_to "Sign in", new_user_session_path, class: "button"%>
+        <%= link_to "\u{1F58B}\uFE0F", new_user_session_path%>
         <% end %></li>
       </ul>
     </nav>
   </div>
-  <div class="whomi">
+  <h2>Qui suis je ?</h2>
+  <div id="whomi">
   <div class="img">
     <%= image_tag "me.jpg"%>
   </div>
@@ -29,6 +30,7 @@
   <%= user.story %>
   </div>
   <div class="map">
+  <h2></h2>
     <div id="map"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -36,7 +38,8 @@
   </div>
   <% end %>
   </div>
-  <div class="cards">
+  <h2>Mes Réalisations</h2>
+  <div id="cards">
     <% @projects.each do |project| %>
     <div class="card-product">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
@@ -63,7 +66,7 @@
     </div>
     <% end %>
   </div>
-  <div class="contact">
+  <div id="contact">
     <div class="form">
       <h3>Me contacter</h3>
       <%= form_with url: contacts_path(model: @contact, local: true) do |f| %>

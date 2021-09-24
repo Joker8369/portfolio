@@ -1,14 +1,15 @@
-.whomi{
+#whomi{
   margin-top: 2rem;
   height:30%;
   display: flex;
   justify-content: space-between;
   margin: 1% 1%;
+  padding-top: 2rem;
 }
-.whomi img {
+#whomi img {
   height:15rem;
   border-radius: 50%;
-  filter: drop-shadow(0 0 2rem #2bf2d4);
+  filter: drop-shadow(0 0 3rem #202020);
 }
 .profile {
   padding: 3rem;
