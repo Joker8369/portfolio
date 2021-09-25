@@ -3,7 +3,9 @@ body {
   font-size: 1rem;
   font-family: 'Courgette', cursive;
   letter-spacing: 1px;
+  background:linear-gradient(#ffff, #CAF0F8, #ADE8F4,#ADE8F4,#48CAE4);
 }
+
 h2{margin-left: 1.5rem;}
 .projects {
   height: 5rem;
@@ -11,7 +13,4 @@ h2{margin-left: 1.5rem;}
 
 .profiler-results {
   display: none;
-}
- .page {
-background:linear-gradient(#ffff, #FFCA50, #E2821C);
 }
