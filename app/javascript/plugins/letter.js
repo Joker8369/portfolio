@@ -1,20 +1,29 @@
-import Letterize from "!https://cdn.skypack.dev/letterizejs@2.0.0";
-const test = new Letterize({
-  targets: "#animateMe"
-});
 
-var animation = anime.timeline({
-  targets: test.listAll,
-  delay: anime.stagger(50),
-  loop: true
-});
+// Wrap every letter in a span
+var textWrapper = document.querySelector('.ml14 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
-animation
+anime.timeline({ loop: true })
   .add({
-    translateY: -40
-  })
-  .add({
-    translateY: 0
+    targets: '.ml14 .line',
+    scaleX: [0, 1],
+    opacity: [0.5, 1],
+    easing: "easeInOutExpo",
+    duration: 1500
+  }).add({
+    targets: '.ml14 .letter',
+    opacity: [0, 1],
+    translateX: [40, 0],
+    translateZ: 0,
+    scaleX: [0.3, 1],
+    easing: "easeOutExpo",
+    duration: 1000,
+    offset: '-=600',
+    delay: (el, i) => 150 + 25 * i
+  }).add({
+    targets: '.ml14',
+    opacity: 0,
+    duration: 10000,
+    easing: "easeOutExpo",
+    delay: 1000
   });
-
-export { test };
