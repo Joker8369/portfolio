@@ -15,7 +15,8 @@
         <% if user_signed_in? %>
         <%= link_to "\u274C", destroy_user_session_path, method: :delete%>
         <%= link_to "Add a new project", new_project_path%>
-        <%= link_to 'Show Users', users_path, method: :get%>
+        <%= link_to 'Update', edit_user_path(current_user), method: :get,
+        data: { confirm: "Are you sure?" } %>
         <% else %>
         <%= link_to "\u{1F58B}\uFE0F", new_user_session_path%>
         <% end %></li>
