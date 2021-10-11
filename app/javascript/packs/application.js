@@ -10,6 +10,7 @@ import "channels"
 import "../plugins/letter"
 import { initMapbox } from '../plugins/init_mapbox';
 
+
 anime.timeline({ loop: true })
   .add({
     targets: 'img',

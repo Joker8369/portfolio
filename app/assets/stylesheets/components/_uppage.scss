@@ -2,7 +2,7 @@
 .uppage {
   height: 12rem;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
   margin: 0 5px;
   text-decoration: none;
@@ -20,8 +20,9 @@
 
 .uppage nav{
   float: right;
-  width: 60%;
   text-align: end;
+  background: linear-gradient(to right ,#fff, #F9FAFA, #F5F6F7, #EDEEEF, #E7E9EB, #E4E6E9);
+  border-radius: 10px;
 }
 
 
