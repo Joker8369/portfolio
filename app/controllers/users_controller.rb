@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def update
-         @user.update(users_params)
+    @user.update(users_params)
     redirect_to root_path
   end
 

@@ -9,6 +9,11 @@ h2 {
   margin-left: 1.5rem;
 }
 
+.page {
+  height: 100%;
+  background:linear-gradient(#ffff,#F5FCFE, #E1F7FB, #CDF1F8,#ADE8F4);
+  background-size:cover;
+}
 .projects {
   height: 5rem;
 }
@@ -17,10 +22,6 @@ h2 {
   display: none;
 }
 
-.page {
-  background:linear-gradient(#ffff,#FDFBF8,#FAF2EB,#F7EADD,#F4E1D0);
-  background-size:cover;
-}
 
 
 //87a5ba

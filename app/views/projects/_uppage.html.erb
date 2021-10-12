@@ -1,0 +1,24 @@
+    <h2 class="ml14">
+  <span class="text-wrapper"><span class="letters">J.KERBRAT Portfolio</span><span class="line"></span><span class="point">.</span>
+  </span></h2>
+    <nav>
+      <ul class = nav>
+        <li>Accueil</li>
+        <li><%= link_to 'Qui suis je?', '#whomi' %></li>
+        <li><%= link_to 'Mes réalisations', '#cards' %></li>
+        <li><%= link_to 'Contact', '#contact' %></li>
+        <li> <% if user_signed_in? %>
+        <h3> Bonjour <%= current_user.name.capitalize %></h3>
+        <%= link_to "\u274C", destroy_user_session_path, method: :delete%>
+          <% if @user.admin?%>
+          <%= link_to "Add a new project", new_project_path%>
+          <% end %>
+          <% if policy(current_user).update?%>
+          <%= link_to 'Update', edit_user_path(current_user), method: :get,
+          data: { confirm: "Are you sure?" } %>
+          <% end%>
+        <% else %>
+        <%= link_to "\u{1F58B}\uFE0F", new_user_session_path%>
+        <% end %></li>
+      </ul>
+    </nav>

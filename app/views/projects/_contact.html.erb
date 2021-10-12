@@ -1,0 +1,14 @@
+<div class="form">
+      <h3>Me contacter</h3>
+      <%= form_with url: contacts_path(model: @contact, local: true) do |f| %>
+      <%= f.label :name, "Nom" %> <br>
+      <%= f.text_field :name %> <br><br>
+      <%= f.label :phone, "📞" %><br>
+      <%= f.text_field :name %><br><br>
+      <%= f.label :email, "📧" %><br>
+      <%= f.email_field :email, autocomplete: "email" %><br><br>
+      <%= f.label :content, "🎟️" %><br>
+      <%= f.text_field :content %><br><br>
+      <%= f.submit "📩" %>
+      <% end %>
+</div>

@@ -8,6 +8,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
+    authorize @contact
     if @contact.save
       ContactMailer.contact_mail(@contact).deliver
       redirect_to contacts_path

@@ -25,7 +25,7 @@ class ApplicationPolicy
   end
 
   def update?
-    true
+    true if @user.admin? || @user.id == user.id
   end
 
   def edit?
@@ -33,7 +33,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    true
+    true if @user.admin? || @user.id == user.id
   end
 
   class Scope

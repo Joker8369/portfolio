@@ -1,0 +1,25 @@
+<% @projects.each do |project| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2>Name : <%= project.name %></h2> <br>
+        <p>Url : <%= link_to "#{project.url}", "#{project.url}", :target => "_blank" %></p> <br>
+        <p>Description : <%= project.content %></p> <br>
+        <div class='card-infos_2'>
+          <% if (user_signed_in? && @user.admin?) || (user_signed_in? && @user.id == project.user_id) %>
+          <div>
+            <%= link_to 'See More', project_path(project) %>
+          </div>
+          <div>
+            <%= link_to 'Update', edit_project_path(project), method: :get,
+            data: { confirm: "Are you sure?" } %>
+          </div>
+          <div>
+            <%= link_to 'Delete', project_path(project), method: :delete,
+            data: { confirm: "Are you sure?" } %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>

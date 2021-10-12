@@ -1,88 +1,17 @@
 
 <div class="page">
   <div class ="uppage">
-    <h2 class="ml14">
-  <span class="text-wrapper"><span class="letters">J.KERBRAT Portfolio</span><span class="line"></span><span class="point">.</span>
-  </span></h2>
-    <nav>
-      <ul class = nav>
-        <li>Accueil</li>
-        <li><%= link_to 'Qui suis je?', '#whomi' %></li>
-        <li><%= link_to 'Mes réalisations', '#cards' %></li>
-        <li><%= link_to 'Contact', '#contact' %></li>
-        <li> <% if user_signed_in? %>
-        <h3> Bonjour <%= current_user.name.capitalize %></h3>
-            <% end %>
-        <% if user_signed_in? %>
-        <%= link_to "\u274C", destroy_user_session_path, method: :delete%>
-        <%= link_to "Add a new project", new_project_path%>
-        <%= link_to 'Update', edit_user_path(current_user), method: :get,
-        data: { confirm: "Are you sure?" } %>
-        <% else %>
-        <%= link_to "\u{1F58B}\uFE0F", new_user_session_path%>
-        <% end %></li>
-      </ul>
-    </nav>
+  <%= render 'uppage'%>
   </div>
   <h2>Qui suis je ?</h2>
   <div id="whomi">
-  <div class="img">
-    <%= image_tag "me.jpg"%>
-  </div>
-  <div class="profile">
-  <% @users.each do |user| %>
-  <%= user.story %>
-  </div>
-  <div class="map">
-    <div id="map"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-     </div>
-  </div>
-  <% end %>
+  <%= render 'whomi'%>
   </div>
   <h2>Mes Réalisations</h2>
   <div id="cards">
-    <% @projects.each do |project| %>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-    <div class="card-product-infos">
-      <h2>Name : <%= project.name %></h2> <br>
-      <p>Url : <%= link_to "#{project.url}", "#{project.url}", :target => "_blank" %></p> <br>
-      <p>Description : <%= project.content %></p> <br>
-    <div class='card-infos_2'>
-      <% if user_signed_in? %>
-      <div>
-        <%= link_to 'See More', project_path(project) %>
-      </div>
-      <div>
-        <%= link_to 'Update', edit_project_path(project), method: :get,
-        data: { confirm: "Are you sure?" } %>
-      </div>
-      <div>
-        <%= link_to 'Delete', project_path(project), method: :delete,
-        data: { confirm: "Are you sure?" } %>
-      </div>
-      <% end %>
-    </div>
-    </div>
-    </div>
-    <% end %>
+    <%= render 'cards' %>
   </div>
   <div id="contact">
-    <div class="form">
-      <h3>Me contacter</h3>
-      <%= form_with url: contacts_path(model: @contact, local: true) do |f| %>
-      <%= f.label :name, "Nom" %> <br>
-      <%= f.text_field :name %> <br><br>
-      <%= f.label :phone, "📞" %><br>
-      <%= f.text_field :name %><br><br>
-      <%= f.label :email, "📧" %><br>
-      <%= f.email_field :email, autocomplete: "email" %><br><br>
-      <%= f.label :content, "🎟️" %><br>
-      <%= f.text_field :content %><br><br>
-      <%= f.submit "📩" %>
-      <% end %>
-    </div>
+    <%= render'contact' %>
   </div>
 </div>
