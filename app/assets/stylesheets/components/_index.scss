@@ -10,6 +10,19 @@ h2 {
 }
 
 .page {
-  height: 100%;
  background: linear-gradient(to bottom,#fff, #FFFAF1, #FFF2DC,#FFC9A3);
+}
+
+
+@media(max-width: 992px) {
+  .card {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  h2 {
+    margin-left: 2%;
+    font-size: 1rem;
+  }
 }

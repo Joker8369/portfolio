@@ -1,6 +1,5 @@
 
 .uppage {
-  height: 25%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,7 +13,6 @@
 .uppage nav{
   float: right;
   text-align: end;
-  border-radius: 10px;
 }
 
 
@@ -74,4 +72,30 @@ ul {
 .point{
   color: red;
   font-size: 3rem;
+}
+
+@media(max-width: 992px) {
+  .nav {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  * {
+    margin: 0;
+  }
+  .uppage {
+    padding: 0 0 10px 0;
+  }
+  .nav {
+margin-left: 0;
+  }
+  .uppage h2{
+    font-size: 1rem;
+    margin-left: 10px;
+  }
+.uppage nav{
+  display: none;
+}
+
 }
